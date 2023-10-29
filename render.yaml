@@ -1,5 +1,6 @@
 services:
   - name: server
     type: web
+    runtime: nodejs
     buildCommand: npm run build
     startCommand: npm run start

@@ -1,5 +1,6 @@
 services:
   - name: server
+    type: web
     buildCommand: npm run build
     startCommand: npm run start
     routes:
@@ -7,6 +8,7 @@ services:
         service: server
 
   - name: client
+    type: web
     buildCommand: npm run build
     startCommand: npm run start
     staticPublishPath: client/build

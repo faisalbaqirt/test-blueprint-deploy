@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx knex migrate:latest && npx knex seed:run && node index.js"
+    "build": "NODE_ENV=production npx knex migrate:latest && NODE_ENV=production npx knex seed:run && node index.js"
   },
   "keywords": [],
   "author": "",

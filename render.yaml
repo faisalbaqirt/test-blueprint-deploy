@@ -3,12 +3,13 @@ services:
     type: web
     buildCommand: npm run build
     startCommand: npm run start
-    routes:
-      - path: /api
-        service: server
-
   - name: client
     type: web
     buildCommand: npm run build
     startCommand: npm run start
     staticPublishPath: client/build
+
+routes:
+  - path: /v2/testdeploy
+    service: server
+

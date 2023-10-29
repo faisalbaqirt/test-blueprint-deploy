@@ -1,8 +1,6 @@
 const knex = require('knex');
 const knexfile = require('../knexfile');
 
-// Ubah lingkungan yang digunakan berdasarkan nilai NODE_ENV
-const environment = process.env.NODE_ENV || 'development';
-const db = knex(knexfile[environment]);
+const db = knex(knexfile.production);
 
 module.exports = db;

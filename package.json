@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "build": "cd server && npx knex migrate:latest && npx knex seed:run"
+    "start": "node index.js",
+    "build": "npx knex migrate:latest && npx knex seed:run"
   },
   "keywords": [],
   "author": "",

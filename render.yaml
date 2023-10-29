@@ -3,10 +3,6 @@ services:
     type: web
     buildCommand: npm run build
     startCommand: npm run start
-    routes:
-      - path: /v2/testdeploy
-        type: rewrite
-        destination: /v2/testdeploy
 
   - name: client
     type: web

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "npx knex migrate:latest && npx knex seed:run && node index.js"
   },
   "keywords": [],
   "author": "",

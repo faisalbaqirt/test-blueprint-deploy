@@ -1,0 +1,12 @@
+services:
+  - name: server
+    buildCommand: npm run build
+    startCommand: npm run start
+    routes:
+      - path: /api
+        service: server
+
+  - name: client
+    buildCommand: npm run build
+    startCommand: npm run start
+    staticPublishPath: client/build

@@ -45,7 +45,10 @@ module.exports = {
 
   production: {
     client: 'postgresql',
-    connection: process.env.DB_CONNECTION_PROD,
+    connection: {
+      connectionString: process.env.DB_CONNECTION_PROD,
+      ssl: { rejectUnauthorized: false } // Bypass SSL verification (not recommended for production)
+    },
     pool: {
       min: 2,
       max: 10

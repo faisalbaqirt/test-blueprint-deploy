@@ -3,13 +3,13 @@ services:
     type: web
     buildCommand: npm run build
     startCommand: npm run start
-    routes:
-      - path: /api
-        service: server
-
   - name: client
     type: web
     buildCommand: cd client && npm run build
     startCommand: cd client && npm start
     staticPublishPath: client/build
 
+routes:
+  - type: rewrite
+    source: /v2/testdeploy
+    destination: /v2/testdeploy

@@ -12,47 +12,46 @@ const loginByUsername = (username) => {
   return db("users").where("username", username).first();
 };
 
-// const getUserById = (id, callback) => {
-//   const user = users.find((user) => user.id === id);
-//   callback(null, user);
-// }
-const editProfile = async (id, newUsername) => {
+const editProfile = async (id, username, email, name, password, photo) => {
   try {
-    await db('users').where('id', id).update({ 
-      username: newUsername 
+    await db("users").where("id", id).update({
+      username: username,
+      email: email,
+      name: name,
+      password: password,
+      photo: photo,
     });
   } catch (error) {
-    res.status(500).json({ message: 'Terjadi kesalahan saat mengedit profil' });
+    throw error;
   }
 };
 
 const getAllUsers = async () => {
   try {
-      const data = await db.select('*').from('users');
-      return data;
+    const data = await db.select("*").from("users");
+    return data;
   } catch (error) {
-      throw error;
+    throw error;
   }
-}
+};
 
 const getUserById = async (id) => {
   try {
-      const data = await db.select('*').from('users').where('id', id).first();
-      return data;
+    const data = await db.select("*").from("users").where("id", id).first();
+    return data;
   } catch (error) {
-      throw error;
+    throw error;
   }
-}
+};
 
 const deleteUser = async (id) => {
   try {
-      const result = await db('users').where('id', id).delete().returning('id');
-      return result[0];
+    const result = await db("users").where("id", id).delete().returning("id");
+    return result[0];
   } catch (error) {
-      throw error;
+    throw error;
   }
-}
-
+};
 
 module.exports = {
   registerUser,
@@ -60,5 +59,5 @@ module.exports = {
   editProfile,
   getAllUsers,
   getUserById,
-  deleteUser
-}
+  deleteUser,
+};
